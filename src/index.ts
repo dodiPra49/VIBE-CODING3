@@ -1,6 +1,7 @@
 import { Elysia } from "elysia";
 import { db } from "./db";
 import { users } from "./db/schema";
+import { usersRoute } from "./routes/users_route";
 
 const app = new Elysia()
   .get("/", () => "Hello Elysia, Drizzle, and MySQL!")
@@ -16,6 +17,7 @@ const app = new Elysia()
       });
     }
   })
+  .use(usersRoute)
   .listen(3000);
 
 console.log(
